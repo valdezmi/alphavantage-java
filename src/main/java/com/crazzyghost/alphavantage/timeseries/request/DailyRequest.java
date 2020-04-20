@@ -11,9 +11,7 @@ public class DailyRequest extends TimeSeriesRequest{
     private DailyRequest(Builder builder){
         super(builder);
         this.function = builder.function;
-        System.out.println("A" + builder.outputSize.toString());
         this.outputSize = builder.outputSize == null ? OutputSize.COMPACT : builder.outputSize ;
-        System.out.println("B" + this.outputSize.toString());
     }
 
 
