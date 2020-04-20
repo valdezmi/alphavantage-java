@@ -5,8 +5,8 @@ import com.crazzyghost.alphavantage.parameters.OutputSize;
 
 public class DailyRequest extends TimeSeriesRequest{
 
-    private OutputSize outputSize;
     private Function function;
+    private OutputSize outputSize;
 
     private DailyRequest(Builder builder){
         super(builder);
