@@ -11,6 +11,7 @@ public class UrlExtractor{
 
         Class<?> cls = object.getClass();
         while(cls != null){
+            System.out.println(cls.getName());
             Field[] fields = cls.getDeclaredFields();
             for(Field field : fields){
                 field.setAccessible(true);
