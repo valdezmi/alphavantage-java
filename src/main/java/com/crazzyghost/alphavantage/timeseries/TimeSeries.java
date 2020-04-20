@@ -84,7 +84,7 @@ public class TimeSeries{
             @Override
             public void onFailure(Call call, IOException e) {
                 //respond to callback on failure
-//                System.out.println("Failed Fetching Response ... " + e.getClass().getCanonicalName());
+                System.out.println("Failed Fetching Response ... " + e.getClass().getCanonicalName());
                 if(failureCallback != null){
                     failureCallback.onFailure(new AlphaVantageException(e.getMessage()));
                 }
