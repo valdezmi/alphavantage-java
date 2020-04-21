@@ -9,12 +9,11 @@ public class UrlExtractor{
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        System.out.println("extracting now");
 
         Class<?> cls = object.getClass();
         while(cls != null){
             Field[] fields = cls.getDeclaredFields();
-            System.out.println(fields.length + "");
+            System.out.println(cls.getName());
 
             for(Field field : fields){
                 field.setAccessible(true);
