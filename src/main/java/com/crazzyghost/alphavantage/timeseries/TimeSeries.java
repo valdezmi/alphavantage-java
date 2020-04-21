@@ -71,43 +71,9 @@ public class TimeSeries implements Fetcher{
         
         this.request = this.builder.build();
 
-        // Start construction of URL starting by function and ending by api-key
-
-        String URLBody  = UrlExtractor.extract(this.request);
-
-        String[] URLComponents = URLBody.split("&");
-
-        StringBuilder newURL = new StringBuilder();
-
-        for (String component : URLComponents) {
-
-            if(component.split("=")[0].equalsIgnoreCase("function")){
-
-                newURL.append(component).append("&");
-                break;
-
-            }
-
-        }
-
-        for (String component : URLComponents) {
-
-            if(!component.split("=")[0].equalsIgnoreCase("function") &&
-                    !component.split("=")[0].equalsIgnoreCase("apikey")){
-
-                newURL.append(component).append("&");
-
-            }
-
-        }
-
-        newURL.append("apikey=");
-
         Request request = new Request.Builder()
-                .url(Config.BASE_URL + newURL.toString() + config.getKey())
+                .url(Config.BASE_URL + UrlExtractor.extract(this.request).replace("outputSize", "outputsize") + config.getKey())
                 .build();
-
-        System.out.println(Config.BASE_URL + newURL.toString() + config.getKey());
 
         client.newCall(request).enqueue(new okhttp3.Callback() {
             @Override
