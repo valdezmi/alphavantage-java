@@ -9,7 +9,7 @@ public class UrlExtractor{
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        System.out.println("extracting");
+        System.out.println("extracting now");
 
         Class<?> cls = object.getClass();
         while(cls != null){
