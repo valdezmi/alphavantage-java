@@ -13,7 +13,14 @@ public class UrlExtractor{
         Class<?> cls = object.getClass();
         while(cls != null){
             Field[] fields = cls.getDeclaredFields();
-            System.out.println(cls.getName());
+
+            // make sure function is prioritised over output.
+            if (cls.getName().equalsIgnoreCase("com.crazzyghost.alphavantage.timeseries.request.DailyRequest")){
+
+                // Reverse array! This way, the outputSize goes first.
+                fields = new Field[]{fields[1], fields[0]};
+
+            }
 
             for(Field field : fields){
                 field.setAccessible(true);
