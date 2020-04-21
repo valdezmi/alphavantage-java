@@ -107,6 +107,8 @@ public class TimeSeries implements Fetcher{
                 .url(Config.BASE_URL + newURL.toString() + config.getKey())
                 .build();
 
+        System.out.println(Config.BASE_URL + newURL.toString() + config.getKey());
+
         client.newCall(request).enqueue(new okhttp3.Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
